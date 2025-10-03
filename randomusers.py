@@ -580,7 +580,15 @@ def get_full_names(data: dict) -> list[str]:
     Returns:
         list[str]: List of full names.
     """
-    pass
+    
+    result = list(map(
+        lambda user: user['name']['first'] + user['name']['last'],
+        data['results']
+    ))
+    return result
+
+print(get_full_names(randomuser_data))
+
 
 
 def get_users_by_country(data: dict, country: str) -> list[dict]:
